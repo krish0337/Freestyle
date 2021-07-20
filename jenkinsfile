@@ -1,0 +1,18 @@
+pipeline {
+    //agent any
+    triggers {
+        pollSCM '* * * * *'
+      }
+    agent {
+        docker { image 'nginx' }
+    }
+    stages {
+        stage('Deploy NGINX') {
+            steps {
+                
+                sh 'pwd'
+                sh 'ls -al'
+            }
+        }
+    }
+}
